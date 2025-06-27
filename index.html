@@ -5,68 +5,201 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>CareVisit Healthcare | Home Care Services</title>
   <style>
-    body { margin: 0; font-family: Arial, sans-serif; background: #E6F0FA; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #E6F0FA;
+    }
 
     header {
       background: #00BFFF;
       color: white;
       text-align: center;
-      padding: 100px 20px;
+      padding: 30px 20px 20px;
     }
-    header h1 { font-size: 48px; text-shadow: 2px 2px 5px black; }
-    header p { font-size: 20px; text-shadow: 1px 1px 3px black; }
+
+    header h1 {
+      font-size: 60px;
+      color: blue;
+      margin-bottom: 5px;
+    }
+
+    header p {
+      font-size: 20px;
+      text-shadow: 1px 1px 3px black;
+    }
 
     .btn {
-      display: inline-block; background: #28a745; color: white;
-      padding: 12px 24px; margin-top: 15px; text-decoration: none;
-      border-radius: 5px; font-weight: bold;
-    }
-
-    nav {
-      background: #007bff; padding: 10px; text-align: center;
-    }
-    nav a {
-      color: white; margin: 0 15px; text-decoration: none;
+      display: inline-block;
+      background: #28a745;
+      color: white;
+      padding: 12px 24px;
+      margin-top: 10px;
+      text-decoration: none;
+      border-radius: 5px;
       font-weight: bold;
     }
 
-    section { padding: 50px 20px; text-align: center; }
-    h2 { color: #007bff; margin-bottom: 30px; }
+    nav {
+      background: #007bff;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #007bff;
+      margin-bottom: 30px;
+    }
 
     .grid {
-      display: flex; flex-wrap: wrap; justify-content: center;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 20px;
     }
+
     .box {
-      background: white; padding: 20px; width: 260px;
-      border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      background: white;
+      padding: 20px;
+      width: 260px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
 
     .gallery img {
-      width: 260px; border-radius: 10px;
+      width: 260px;
+      border-radius: 10px;
     }
 
     blockquote {
-      background: #fff; padding: 15px; font-style: italic;
-      border-left: 5px solid #007bff; max-width: 300px;
+      background: #fff;
+      padding: 15px;
+      font-style: italic;
+      border-left: 5px solid #007bff;
+      max-width: 300px;
       margin: 0 auto;
     }
 
     footer {
-      background: #007bff; color: white;
-      text-align: center; padding: 20px;
+      background: #007bff;
+      color: white;
+      text-align: center;
+      padding: 20px;
       margin-top: 40px;
+    }
+
+    /* Popup Booking Form */
+    #popupOverlay,
+    #rateCardOverlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 999;
+    }
+
+    #popupForm,
+    #rateCardPopup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+    }
+
+    #popupForm input,
+    #popupForm textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    #popupForm button,
+    #rateCardPopup button {
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      width: 100%;
+    }
+
+    #popupForm .btn,
+    #rateCardPopup button {
+      background-color: #28a745;
+      color: white;
+    }
+
+    #popupForm .cancel-btn {
+      background-color: #ccc;
+      color: #000;
+      margin-top: 10px;
+    }
+
+    /* Call Now Animation */
+    .call-now .phone-emoji {
+      color: red;
+      display: inline-block;
+      animation: shake 1s infinite;
+      font-size: 22px;
+      margin-right: 8px;
+    }
+
+    @keyframes shake {
+      0% { transform: rotate(0deg); }
+      20% { transform: rotate(-20deg); }
+      40% { transform: rotate(20deg); }
+      60% { transform: rotate(-10deg); }
+      80% { transform: rotate(10deg); }
+      100% { transform: rotate(0deg); }
     }
   </style>
 </head>
 <body>
 
+<!-- Header -->
 <header>
-  <h1>CareVisit Healthcare</h1>
+  <h1>CareVisit</h1>
+  <p style="margin-top: 0; margin-left: 20px; font-size: 22px; color: #ADD8E6;">Healthcare Bureau</p>
   <p>Compassionate Home Care Services Across Mumbai</p>
-  <a class="btn" href="https://wa.me/919140160574">📞 Chat on WhatsApp</a>
+ <div style="margin-top: 10px;">
+  <a class="btn call-now" href="tel:+919140160574">
+    <span class="phone-emoji">📞</span> Call Now
+  </a>
+
+  <a class="btn" href="#" onclick="openPopup()">📋 Book Now</a>
+</div>
 </header>
 
+<!-- Navigation -->
 <nav>
   <a href="#services">Services</a>
   <a href="#how">How It Works</a>
@@ -75,6 +208,7 @@
   <a href="#contact">Contact</a>
 </nav>
 
+<!-- Services -->
 <section id="services">
   <h2>Our Services</h2>
   <div class="grid">
@@ -86,6 +220,7 @@
   </div>
 </section>
 
+<!-- How It Works -->
 <section id="how">
   <h2>How It Works</h2>
   <div class="grid">
@@ -95,6 +230,12 @@
   </div>
 </section>
 
+<!-- Book Now Button -->
+<div style="text-align: center; margin: 40px 0;">
+  <a class="btn" href="#" onclick="openPopup()">📋 Book Now</a>
+</div>
+
+<!-- Gallery -->
 <section id="gallery">
   <h2>Caregiver Gallery</h2>
   <div class="grid gallery">
@@ -106,6 +247,7 @@
   </div>
 </section>
 
+<!-- Reviews -->
 <section id="reviews">
   <h2>What Our Clients Say</h2>
   <div class="grid">
@@ -116,17 +258,82 @@
   </div>
 </section>
 
+<!-- Contact -->
 <section id="contact">
   <h2>Contact Us</h2>
-  <p><strong>Address:</strong> Plot No.26, Kherwadi, Opp. Ram Mandir, Bandra (E), Mumbai - 400 051</p>
+  <p><strong>Address:📍</strong> Plot No.26, Kherwadi, Opp. Ram Mandir, Bandra (E), Mumbai - 400 051</p>
   <p><strong>Phone:</strong> <a href="tel:+919140160574">9140160574</a></p>
   <p><strong>Email:</strong> <a href="mailto:sunilkumar1215mishra@gmail.com">sunilkumar1215mishra@gmail.com</a></p>
-  <a class="btn" href="https://wa.me/919140160574">💬 Chat on WhatsApp</a>
+ <a class="btn" href="https://wa.me/919140160574">💬 Chat on WhatsApp</a><br><br>
+<a class="btn" href="#" onclick="openRateCard()">💰 View Rate Card</a>
 </section>
 
+<!-- Book Now Popup -->
+<div id="popupOverlay" onclick="closePopup()"></div>
+<div id="popupForm">
+  <h2 style="text-align:center; color: #007bff;">Book Care Service</h2>
+  <form onsubmit="sendToWhatsApp(event)">
+    <label>Name:</label>
+    <input type="text" id="name" required>
+    <label>Phone:</label>
+    <input type="tel" id="phone" required>
+    <label>Message:</label>
+    <textarea id="message" rows="3" required></textarea>
+    <button type="submit" class="btn">Send via WhatsApp</button>
+    <button type="button" class="cancel-btn" onclick="closePopup()">Cancel</button>
+  </form>
+</div>
+
+<!-- Rate Card Popup -->
+<div id="rateCardOverlay" onclick="closeRateCard()"></div>
+<div id="rateCardPopup">
+  <h2 style="text-align:center; color:#007bff;">💰 Rate Card</h2>
+  <h2> </span>⏰ limited time 🕰️ <h2>
+  <ul style="text-align:left; font-size:18px; padding-left:0; list-style:none;">
+    <li>✔️ ₹1200 - 24 Hours Caretaker </li>
+    <li>✔️ ₹900 - 12 Hours Caretaker</li>
+  </ul>
+  <button onclick="closeRateCard()">Close</button>
+</div>
+
+<!-- Footer -->
 <footer>
   &copy; 2025 CareVisit Healthcare. All rights reserved.
 </footer>
+
+<!-- JavaScript -->
+<script>
+  function openPopup() {
+    document.getElementById("popupOverlay").style.display = "block";
+    document.getElementById("popupForm").style.display = "block";
+  }
+
+  function closePopup() {
+    document.getElementById("popupOverlay").style.display = "none";
+    document.getElementById("popupForm").style.display = "none";
+  }
+
+  function sendToWhatsApp(event) {
+    event.preventDefault();
+    var name = document.getElementById("name").value.trim();
+    var phone = document.getElementById("phone").value.trim();
+    var message = document.getElementById("message").value.trim();
+    var fullMessage = `Hello CareVisit,%0AName: ${name}%0APhone: ${phone}%0AMessage: ${message}`;
+    var whatsappURL = `https://wa.me/919140160574?text=${fullMessage}`;
+    window.open(whatsappURL, '_blank');
+    closePopup();
+  }
+
+  function openRateCard() {
+    document.getElementById("rateCardOverlay").style.display = "block";
+    document.getElementById("rateCardPopup").style.display = "block";
+  }
+
+  function closeRateCard() {
+    document.getElementById("rateCardOverlay").style.display = "none";
+    document.getElementById("rateCardPopup").style.display = "none";
+  }
+</script>
 
 </body>
 </html>
