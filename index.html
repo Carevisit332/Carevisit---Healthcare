@@ -82,9 +82,37 @@
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
 
-    .gallery img {
-      width: 260px;
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .gallery-item {
+      text-align: center;
+      background: white;
+      padding: 10px;
       border-radius: 10px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+
+    .gallery-item img {
+      width: 260px;
+      border-radius: 8px;
+    }
+
+    .caption {
+      margin-top: 8px;
+      font-size: 15px;
+      color: #333;
+      font-weight: 500;
     }
 
     blockquote {
@@ -104,9 +132,7 @@
       margin-top: 40px;
     }
 
-    /* Popup Booking Form */
-    #popupOverlay,
-    #rateCardOverlay {
+    #popupOverlay, #rateCardOverlay {
       display: none;
       position: fixed;
       top: 0;
@@ -117,8 +143,7 @@
       z-index: 999;
     }
 
-    #popupForm,
-    #rateCardPopup {
+    #popupForm, #rateCardPopup {
       display: none;
       position: fixed;
       top: 50%;
@@ -133,8 +158,7 @@
       z-index: 1000;
     }
 
-    #popupForm input,
-    #popupForm textarea {
+    #popupForm input, #popupForm textarea {
       width: 100%;
       padding: 10px;
       margin-bottom: 10px;
@@ -143,8 +167,7 @@
       font-size: 16px;
     }
 
-    #popupForm button,
-    #rateCardPopup button {
+    #popupForm button, #rateCardPopup button {
       padding: 12px;
       border: none;
       border-radius: 5px;
@@ -152,8 +175,7 @@
       width: 100%;
     }
 
-    #popupForm .btn,
-    #rateCardPopup button {
+    #popupForm .btn, #rateCardPopup button {
       background-color: #28a745;
       color: white;
     }
@@ -164,7 +186,6 @@
       margin-top: 10px;
     }
 
-    /* Call Now Animation */
     .call-now .phone-emoji {
       color: red;
       display: inline-block;
@@ -190,13 +211,12 @@
   <h1>CareVisit</h1>
   <p style="margin-top: 0; margin-left: 20px; font-size: 22px; color: #ADD8E6;">Healthcare Bureau</p>
   <p>Compassionate Home Care Services Across Mumbai</p>
- <div style="margin-top: 10px;">
-  <a class="btn call-now" href="tel:+919140160574">
-    <span class="phone-emoji">📞</span> Call Now
-  </a>
-
-  <a class="btn" href="#" onclick="openPopup()">📋 Book Now</a>
-</div>
+  <div style="margin-top: 10px;">
+    <a class="btn call-now" href="tel:+919140160574">
+      <span class="phone-emoji">📞</span> Call Now
+    </a>
+    <a class="btn" href="#" onclick="openPopup()">📋 Book Now</a>
+  </div>
 </header>
 
 <!-- Navigation -->
@@ -230,7 +250,7 @@
   </div>
 </section>
 
-<!-- Book Now Button -->
+<!-- Book Now Button (before Gallery) -->
 <div style="text-align: center; margin: 40px 0;">
   <a class="btn" href="#" onclick="openPopup()">📋 Book Now</a>
 </div>
@@ -238,12 +258,27 @@
 <!-- Gallery -->
 <section id="gallery">
   <h2>Caregiver Gallery</h2>
-  <div class="grid gallery">
-    <img src="card.jpg" alt="Visiting Card">
-    <img src="care1.JPG" alt="Caregiver 1">
-    <img src="care2.JPG" alt="Caregiver 2">
-    <img src="care3.JPG" alt="Caregiver 3">
-    <img src="banner.JPEG" alt="Company Banner">
+  <div class="gallery">
+    <div class="gallery-item">
+      <img src="card.jpg" alt="Visiting Card">
+      <p class="caption">Company Visiting Card</p>
+    </div>
+    <div class="gallery-item">
+      <img src="care1.JPG" alt="Caregiver 1">
+      <p class="caption">Trained Female Caregiver</p>
+    </div>
+    <div class="gallery-item">
+      <img src="care2.JPG" alt="Caregiver 2">
+      <p class="caption">Male Nurse for Night Duty</p>
+    </div>
+    <div class="gallery-item">
+      <img src="care3.JPG" alt="Caregiver 3">
+      <p class="caption">Experienced Attendant</p>
+    </div>
+    <div class="gallery-item">
+      <img src="banner.JPEG" alt="Company Banner">
+      <p class="caption">CareVisit Services Across Mumbai</p>
+    </div>
   </div>
 </section>
 
@@ -264,8 +299,8 @@
   <p><strong>Address:📍</strong> Plot No.26, Kherwadi, Opp. Ram Mandir, Bandra (E), Mumbai - 400 051</p>
   <p><strong>Phone:</strong> <a href="tel:+919140160574">9140160574</a></p>
   <p><strong>Email:</strong> <a href="mailto:sunilkumar1215mishra@gmail.com">sunilkumar1215mishra@gmail.com</a></p>
- <a class="btn" href="https://wa.me/919140160574">💬 Chat on WhatsApp</a><br><br>
-<a class="btn" href="#" onclick="openRateCard()">💰 View Rate Card</a>
+  <a class="btn" href="https://wa.me/919140160574">💬 Chat on WhatsApp</a><br><br>
+  <a class="btn" href="#" onclick="openRateCard()">💰 View Rate Card</a>
 </section>
 
 <!-- Book Now Popup -->
@@ -288,7 +323,7 @@
 <div id="rateCardOverlay" onclick="closeRateCard()"></div>
 <div id="rateCardPopup">
   <h2 style="text-align:center; color:#007bff;">💰 Rate Card</h2>
-  <h2> </span>⏰ limited time 🕰️ <h2>
+  <h3 style="text-align:center; color:red;">⏰ Limited Time Offer 🕰️</h3>
   <ul style="text-align:left; font-size:18px; padding-left:0; list-style:none;">
     <li>✔️ ₹1200 - 24 Hours Caretaker </li>
     <li>✔️ ₹900 - 12 Hours Caretaker</li>
