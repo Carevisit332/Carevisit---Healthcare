@@ -6,22 +6,22 @@
 
   <!-- Google Site Verification -->
   <meta name="google-site-verification" content="google88b0596dd1d54ea6.html" />
-<link rel="icon" type="image/png" href="logo.png">
-<link rel="apple-touch-icon" href="logo.png">
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="apple-touch-icon" href="logo.png">
 
   <title>CareVisit Healthcare | Home Care Services</title>
-<!-- Open Graph Site Name -->
-<meta property="og:site_name" content="CareVisit healthcare">
+  <!-- Open Graph Site Name -->
+  <meta property="og:site_name" content="CareVisit healthcare">
 
-<!-- Google Structured Data for Site Name -->
-<script type="application/ld+json">
-{
-  "@context" : "https://schema.org",
-  "@type" : "WebSite",
-  "name" : "CareVisit healthcare",
-  "url" : "https://carevisit332.github.io/"
-}
-</script>
+  <!-- Google Structured Data for Site Name -->
+  <script type="application/ld+json">
+  {
+    "@context" : "https://schema.org",
+    "@type" : "WebSite",
+    "name" : "CareVisit healthcare",
+    "url" : "https://carevisit332.github.io/"
+  }
+  </script>
 
   <style>
     * {
@@ -45,7 +45,6 @@
       text-align: center;
       padding: 30px 15px 25px;
       background: #ffffff;
-      /* Soft wave background effect from Option 1 */
       background-image: 
         radial-gradient(circle at 0% 50%, rgba(0, 102, 204, 0.15) 0%, transparent 50%),
         radial-gradient(circle at 100% 50%, rgba(0, 102, 204, 0.15) 0%, transparent 50%);
@@ -61,7 +60,6 @@
       letter-spacing: -0.5px;
     }
 
-    /* Horizontal lines with tagline (Exact match) */
     .tagline-container {
       display: flex;
       align-items: center;
@@ -99,10 +97,9 @@
       gap: 12px;
     }
 
-    /* Buttons matching Option 1 style */
     .btn-header {
       padding: 10px 18px;
-      border-radius: 8px; /* Slightly rounded edges, not full pill */
+      border-radius: 8px;
       font-size: 15px;
       font-weight: bold;
       text-decoration: none;
@@ -124,7 +121,7 @@
     }
 
     /* =========================
-       NAVIGATION (MATCHED TO OPTION 1)
+       NAVIGATION
        ========================= */
 
     nav {
@@ -147,6 +144,75 @@
 
     nav a:hover {
       color: #cce3ff;
+    }
+
+    /* =========================
+       HERO BANNER & PATIENT COUNTER (FULL WIDTH)
+       ========================= */
+
+    .patient-banner-section {
+      width: 100%;
+      padding: 0; /* Left-Right Space Hata diya hai */
+      margin: 0;
+      display: block;
+    }
+
+    .banner-card {
+      position: relative;
+      width: 100%;
+      border-radius: 0; /* Corner radius zero kiya taaki full width lage */
+      overflow: hidden;
+      background: #eef7ff;
+    }
+
+    .banner-img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .counter-floating-box {
+      position: absolute;
+      bottom: 20px;
+      left: 5%;
+      right: 5%;
+      background: #ffffff;
+      padding: 14px 20px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+
+    .counter-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .counter-icon {
+      width: 40px;
+      height: 40px;
+    }
+
+    .counter-number-group {
+      font-size: 34px;
+      font-weight: 800;
+      color: #1a237e;
+      font-family: Arial, sans-serif;
+    }
+
+    .plus-sign {
+      color: #e63946;
+      margin-left: 2px;
+    }
+
+    .counter-subtext {
+      margin: 2px 0 0 0;
+      color: #555555;
+      font-size: 15px;
+      font-weight: 600;
     }
 
     /* =========================
@@ -459,16 +525,15 @@
 <body>
 
 <!-- =========================
-     HEADER (OPTION 1 EXACT MATCH)
+     HEADER
      ========================= -->
 
 <header>
-
   <a href="https://carevisit332.github.io/">
-  <img src="logo.png" alt="CareVisit Healthcare Logo" style="height: 75px; width: auto; display: block; margin: 0 auto 10px;">
-</a>
+    <img src="logo.png" alt="CareVisit Healthcare Logo" style="height: 75px; width: auto; display: block; margin: 0 auto 10px;">
+  </a>
 
-<h1>CareVisit</h1>
+  <h1>CareVisit</h1>
   <div class="tagline-container">
     <div class="tagline-line"></div>
     <div class="tagline">Healthcare Bureau</div>
@@ -503,6 +568,31 @@
 </nav>
 
 <!-- =========================
+     PATIENT COUNTER HERO BANNER (FULL WIDTH)
+     ========================= -->
+
+<div class="patient-banner-section">
+  <div class="banner-card">
+    <img src="hero.jpg" alt="CareVisit Happy Patients" class="banner-img">
+    
+    <div class="counter-floating-box">
+      <div class="counter-content">
+        <svg class="counter-icon" viewBox="0 0 24 24" fill="none" stroke="#e63946" stroke-width="2">
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+          <path d="M2 12h20"></path>
+        </svg>
+        
+        <div class="counter-number-group">
+          <span id="patient-counter">0</span><span class="plus-sign">+</span>
+        </div>
+      </div>
+      <p class="counter-subtext">Happy Patients</p>
+    </div>
+  </div>
+</div>
+
+<!-- =========================
      SERVICES
      ========================= -->
 
@@ -510,17 +600,11 @@
   <h2>Our Services</h2>
 
   <div class="grid">
-
     <div class="box">👵 Elderly Care</div>
-
     <div class="box">👶 Babysitting</div>
-
     <div class="box">🧑‍🦽 Disability Support</div>
-
     <div class="box">🧑‍⚕️ Medical Attendant</div>
-
     <div class="box">🏥 Nursing Services (Home & Hospital)</div>
-
   </div>
 </section>
 
@@ -532,19 +616,9 @@
   <h2>How It Works</h2>
 
   <div class="grid">
-
-    <div class="box">
-      📞 Step 1: Call or WhatsApp us
-    </div>
-
-    <div class="box">
-      🏠 Step 2: Caregiver arrives at your home
-    </div>
-
-    <div class="box">
-      💳 Step 3: Start service & make payment
-    </div>
-
+    <div class="box">📞 Step 1: Call or WhatsApp us</div>
+    <div class="box">🏠 Step 2: Caregiver arrives at your home</div>
+    <div class="box">💳 Step 3: Start service & make payment</div>
   </div>
 </section>
 
@@ -567,7 +641,6 @@
   <h2>Caregiver Gallery</h2>
 
   <div class="gallery">
-
     <div class="gallery-item">
       <img src="card.jpg" alt="Visiting Card">
       <p class="caption">Company Visiting Card</p>
@@ -592,7 +665,6 @@
       <img src="banner.JPEG" alt="Company Banner">
       <p class="caption">CareVisit Services Across Mumbai</p>
     </div>
-
   </div>
 </section>
 
@@ -603,15 +675,14 @@
 <section id="reviews">
 
   <h2>What Our Clients Say</h2>
-    <div class="google-review-box" style="text-align: center; padding: 20px; margin-bottom: 20px;">
-        <p>CareVisit Healthcare would love your feedback! Post a review to our profile.</p>
-        <a href="https://g.page/r/CSem4Iy-CdZdEBI/review" target="_blank" style="background-color: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block; font-weight: bold;">
-            Review Us on Google
-        </a>
-    </div>
+  <div class="google-review-box" style="text-align: center; padding: 20px; margin-bottom: 20px;">
+      <p>CareVisit Healthcare would love your feedback! Post a review to our profile.</p>
+      <a href="https://g.page/r/CSem4Iy-CdZdEBI/review" target="_blank" style="background-color: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block; font-weight: bold;">
+          Review Us on Google
+      </a>
+  </div>
 
   <div class="grid">
-
     <blockquote>
       “Excellent care for my elderly father. Very polite and punctual staff.”
       <br>— Ravi, Bandra
@@ -631,7 +702,6 @@
       “Took 24x7 nurse service. Best decision I made.”
       <br>— Imran, Andheri
     </blockquote>
-
   </div>
 </section>
 
@@ -681,38 +751,20 @@
 <div id="popupOverlay" onclick="closePopup()"></div>
 
 <div id="popupForm">
-
-  <h2 style="text-align:center;">
-    Book Care Service
-  </h2>
-
+  <h2 style="text-align:center;">Book Care Service</h2>
   <form onsubmit="sendToWhatsApp(event)">
-
     <label>Name:</label>
-
     <input type="text" id="name" required>
 
     <label>Phone:</label>
-
     <input type="tel" id="phone" required>
 
     <label>Message:</label>
-
     <textarea id="message" rows="3" required></textarea>
 
-    <button type="submit" class="btn">
-      Send via WhatsApp
-    </button>
-
-    <button
-      type="button"
-      class="cancel-btn"
-      onclick="closePopup()">
-      Cancel
-    </button>
-
+    <button type="submit" class="btn">Send via WhatsApp</button>
+    <button type="button" class="cancel-btn" onclick="closePopup()">Cancel</button>
   </form>
-
 </div>
 
 <!-- =========================
@@ -722,24 +774,13 @@
 <div id="rateCardOverlay" onclick="closeRateCard()"></div>
 
 <div id="rateCardPopup">
-
-  <h2 style="text-align:center;">
-    💰 Rate Card
-  </h2>
-
-  <h3 style="text-align:center; color:red;">
-    ⏰ Limited Time Offer 🕰️
-  </h3>
-
+  <h2 style="text-align:center;">💰 Rate Card</h2>
+  <h3 style="text-align:center; color:red;">⏰ Limited Time Offer 🕰️</h3>
   <ul>
     <li>✔️ ₹1200 - 24 Hours Caretaker</li>
     <li>✔️ ₹900 - 12 Hours Caretaker</li>
   </ul>
-
-  <button onclick="closeRateCard()">
-    Close
-  </button>
-
+  <button onclick="closeRateCard()">Close</button>
 </div>
 
 <!-- =========================
@@ -747,15 +788,14 @@
      ========================= -->
 
 <footer>
-  &copy; 2018 CareVisit Healthcare. All rights reserved.
+  &copy; 2026 CareVisit Healthcare. All rights reserved.
 </footer>
 
 <!-- =========================
-     JAVASCRIPT
+     JAVASCRIPT (FIXED COUNTER & POPUPS)
      ========================= -->
 
 <script>
-
   function openPopup() {
     document.getElementById("popupOverlay").style.display = "block";
     document.getElementById("popupForm").style.display = "block";
@@ -767,43 +807,51 @@
   }
 
   function sendToWhatsApp(event) {
-
     event.preventDefault();
-
-    var name =
-      document.getElementById("name").value.trim();
-
-    var phone =
-      document.getElementById("phone").value.trim();
-
-    var message =
-      document.getElementById("message").value.trim();
-
-    var fullMessage =
-      `Hello CareVisit,%0AName: ${name}%0APhone: ${phone}%0AMessage: ${message}`;
-
-    var whatsappURL =
-      `https://wa.me/919140160574?text=${fullMessage}`;
-
+    var name = document.getElementById("name").value.trim();
+    var phone = document.getElementById("phone").value.trim();
+    var message = document.getElementById("message").value.trim();
+    var fullMessage = `Hello CareVisit,%0AName: ${name}%0APhone: ${phone}%0AMessage: ${message}`;
+    var whatsappURL = `https://wa.me/919140160574?text=${fullMessage}`;
     window.open(whatsappURL, "_blank");
-
     closePopup();
   }
 
   function openRateCard() {
-
     document.getElementById("rateCardOverlay").style.display = "block";
-
     document.getElementById("rateCardPopup").style.display = "block";
   }
 
   function closeRateCard() {
-
     document.getElementById("rateCardOverlay").style.display = "none";
-
     document.getElementById("rateCardPopup").style.display = "none";
   }
 
+  // FAST ANIMATED COUNTER FUNCTIONALITY
+  function startCounter() {
+    var el = document.getElementById("patient-counter");
+    if (!el) return;
+    
+    var target = 1270;
+    var count = 0;
+    var speed = 15; // Speed adjustment
+    var step = Math.ceil(target / 40); // Runs quickly to 1270
+
+    var timer = setInterval(function() {
+      count += step;
+      if (count >= target) {
+        el.innerText = target.toLocaleString('en-IN');
+        clearInterval(timer);
+      } else {
+        el.innerText = count.toLocaleString('en-IN');
+      }
+    }, speed);
+  }
+
+  // Trigger counter when page loads
+  window.onload = function() {
+    startCounter();
+  };
 </script>
 
 </body>
