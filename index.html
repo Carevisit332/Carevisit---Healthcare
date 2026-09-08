@@ -37,19 +37,69 @@
     }
 
     /* =========================
+       TOP BRAND BAR (COMPACT & CLEAN)
+       ========================= */
+
+    .top-brand-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 14px;
+      background: #ffffff;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .brand-left {
+      text-decoration: none;
+    }
+
+    .brand-title {
+      font-size: 17px;
+      font-weight: 800;
+      color: #0b4b9c; /* Care Color */
+      letter-spacing: -0.3px;
+    }
+
+    .brand-title span {
+      color: #007bff; /* Visit Color */
+    }
+
+    .brand-title small {
+      font-size: 13px;
+      font-weight: 500;
+      color: #4a5568;
+      margin-left: 2px;
+    }
+
+    .location-right {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #2d3748;
+    }
+
+    .location-icon {
+      width: 14px;
+      height: 14px;
+      stroke: #00a896;
+    }
+
+    /* =========================
        EXACT OPTION 1 HEADER DESIGN
        ========================= */
 
     header {
       position: relative;
       text-align: center;
-      padding: 30px 15px 25px;
+      padding: 25px 15px 25px;
       background: #ffffff;
       background-image: 
         radial-gradient(circle at 0% 50%, rgba(0, 102, 204, 0.15) 0%, transparent 50%),
         radial-gradient(circle at 100% 50%, rgba(0, 102, 204, 0.15) 0%, transparent 50%);
       overflow: hidden;
-      border-radius: 12px 12px 0 0;
+      border-radius: 0;
     }
 
     header h1 {
@@ -152,7 +202,7 @@
 
     .patient-banner-section {
       width: 100%;
-      padding: 0; /* Left-Right Space Hata diya hai */
+      padding: 0;
       margin: 0;
       display: block;
     }
@@ -160,7 +210,7 @@
     .banner-card {
       position: relative;
       width: 100%;
-      border-radius: 0; /* Corner radius zero kiya taaki full width lage */
+      border-radius: 0;
       overflow: hidden;
       background: #eef7ff;
     }
@@ -525,14 +575,28 @@
 <body>
 
 <!-- =========================
+     TOP BRAND BAR (COMPACT & CLEAN)
+     ========================= -->
+
+<div class="top-brand-bar">
+  <a class="brand-left" href="https://carevisit332.github.io/">
+    <div class="brand-title">Care<span>Visit</span><small>@Healthcare</small></div>
+  </a>
+
+  <div class="location-right">
+    <svg class="location-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+      <circle cx="12" cy="10" r="3"></circle>
+    </svg>
+    <span>Mumbai</span>
+  </div>
+</div>
+
+<!-- =========================
      HEADER
      ========================= -->
 
 <header>
-  <a href="https://carevisit332.github.io/">
-    <img src="logo.png" alt="CareVisit Healthcare Logo" style="height: 75px; width: auto; display: block; margin: 0 auto 10px;">
-  </a>
-
   <h1>CareVisit</h1>
   <div class="tagline-container">
     <div class="tagline-line"></div>
@@ -792,7 +856,7 @@
 </footer>
 
 <!-- =========================
-     JAVASCRIPT (FIXED COUNTER & POPUPS)
+     JAVASCRIPT
      ========================= -->
 
 <script>
@@ -830,12 +894,13 @@
   // FAST ANIMATED COUNTER FUNCTIONALITY
   function startCounter() {
     var el = document.getElementById("patient-counter");
-    if (!el) return;
+    if (!el || el.dataset.started) return;
+    el.dataset.started = "true";
     
     var target = 1270;
     var count = 0;
-    var speed = 15; // Speed adjustment
-    var step = Math.ceil(target / 40); // Runs quickly to 1270
+    var speed = 15;
+    var step = Math.ceil(target / 40);
 
     var timer = setInterval(function() {
       count += step;
@@ -848,10 +913,10 @@
     }, speed);
   }
 
-  // Trigger counter when page loads
-  window.onload = function() {
-    startCounter();
-  };
+  // Direct trigger for fast execution
+  startCounter();
+  document.addEventListener("DOMContentLoaded", startCounter);
+  window.addEventListener("load", startCounter);
 </script>
 
 </body>
